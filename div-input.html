@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>   
+<html>   
+  
+<head>   
+    <title>   
+        JQuery | Change an element type. 
+    </title> 
+      <style type="text/css">
+
+         div ,input{ 
+           border:none;
+           font-size: 16px;
+           text-align: left;
+           font-family: none;
+           background: none;
+           padding: 0;
+           display: inline-block;
+           width: 100px;
+        }
+        input:focus {
+            outline: none;
+        }
+       
+      </style>
+<!--     <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+    </script>  -->
+</head>   
+  
+<body style = "text-align:center;">   
+      
+  
+      
+    <div class="divclass" id="newdata" onclick = "GFG_Fun()" value="">
+hellow world 
+    </div> 
+
+
+          
+    <script>   
+     
+        function GFG_Fun() { 
+
+              
+            var attribute = { };
+
+          var MyDiv1 = document.getElementById('newdata').textContent
+                 console.log('=>',MyDiv1);
+            $.each($("div")[0].attributes, function(id, atr) { 
+                attribute[atr.nodeName] = atr.nodeValue; 
+            }); 
+
+            $("div").replaceWith(function () { 
+                return $("<input/>", 
+                    attribute).append($(this).contents()); 
+                
+            }); 
+            document.getElementById("newdata").value = MyDiv1
+        }  
+    </script>   
+</body>   
+  
+</html> 
